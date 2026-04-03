@@ -1,4 +1,4 @@
-# Equal Sides Of An Array
+# Sum of odd numbers
 
 ## 📝 Subject
 
