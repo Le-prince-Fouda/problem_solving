@@ -15,7 +15,7 @@ Move the first letter of each word to the end of it, then add "ay" to the end of
 
 ### Approche
 
-1. iconvert the string to an array
+1. i convert the string to an array
 2. i exclud punctuation character
 3. add the first character and "ay"at the end of each word
 4. replace the first character by blank character
