@@ -17,6 +17,8 @@ Note: Your answer should always be 6 characters long, the shorthand with 3 will 
 
 ## 💡 My Solution
 
+    For this exercice i have write 2 solution with the same principle, but in the second solution "5kyu_RGB To_Hex_Conversion_2" i have try to use more natives functions like: **padStart, toString, Math.min and Math.max**
+
 ### Approche
 
 1. i create a convertion function to execute it to each rgb elements
