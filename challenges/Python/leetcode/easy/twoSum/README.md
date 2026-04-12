@@ -25,7 +25,7 @@ You can return the answer in any order.
 
 ## 💡 My Solution
 
-### Approche
+### Approach
 
 1. subtract the current element's value from the target value
 2. search for the result in the rest of the array
@@ -34,8 +34,8 @@ You can return the answer in any order.
 
 ## 🔗 Liens
 
-* [Link to the Exercice](https://leetcode.com/problems/two-sum/).
+* [Link to the Exercise](https://leetcode.com/problems/two-sum/).
 
 * **Programming language:** Python
 
- **Complexity:** O(n<sup>2</sup>) with n the number of recipe'sproperty
+ **Complexity:** O(n<sup>2</sup>) with n the number of recipe's property
