@@ -1,8 +1,11 @@
 # [2. Add Two Numbers](https://leetcode.com/problems/add-two-numbers/)
 ![Difficulty: Medium](https://img.shields.io/badge/Difficulty-Medium-orange)  
+
 ![Category: Linked List](https://img.shields.io/badge/Category-Linked%20List-blue)
 ![Category: Math](https://img.shields.io/badge/Math-green)
 ![Category: Recursion](https://img.shields.io/badge/Recursion-red) 
+
+![Language: Python](https://img.shields.io/badge/Language-Python-brightgreen)
 
 ## 📝 Description
 The goal is to sum two non-negative integers represented as **linked lists**. Each node contains a single digit, and the digits are stored in reverse order. The result should also be returned as a linked list.
