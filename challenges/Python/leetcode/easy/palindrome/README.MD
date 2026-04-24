@@ -1,50 +1,52 @@
-# Palindrome
+# [9. Palindrome Number](https://leetcode.com/problems/palindrome-number/)
 
-## 📝 Subject
+![Difficulty: Easy](https://img.shields.io/badge/Difficulty-Easy-blue)
 
-Given an integer x, return true if x is a palindrome, and false otherwise.
+![Category: Math](https://img.shields.io/badge/Category-Math-green)
 
-**Examples :**
+![Language: Python](https://img.shields.io/badge/Language-Python-brightgreen)
 
-1. Example 1:
-   * Input: x = 121
-   * Output: true
-   * Explanation: 121 reads as 121 from left to right and from right to left.
-2. Example 2:
-   * Input: x = -121
-   * Output: false
-   * Explanation: From left to right, it reads -121. From right to left, it becomes 121-. Therefore it is not a palindrome.
-3. Example 3:
-   * Input: x = 10
-   * Output: false
-   * Explanation: Reads 01 from right to left. Therefore it is not a palindrome.
+## 📝 Description
+The objective is to determine if an integer `x` is a palindrome. An integer is a palindrome when it reads the same backward as forward (e.g., 121 is, -121 is not).
 
----
+## 💡 Algorithmic Approaches
+I have implemented three different solutions to demonstrate different logic patterns and optimization levels.
 
-## 💡 My Solution
+### 1. Character-by-Character Comparison
+- **Concept**: Convert to string and compare characters from both ends.
+- **Logic**: Use an index to compare the $i$-th character with the $(n-1-i)$-th character.
+- **Pros**: Demonstrates basic index logic.
 
-### Approach
+### 2. String Comparison (Full Inversion)
+- **Concept**: Convert the integer to a string and compare it with its reverse.
+- **Logic**: If `str(x) == str(x)[::-1]`, it's a palindrome.
+- **Pros**: Very clean and readable code.
 
-1.  first code (easy_palindrome1)
-   * convert the int into a string 
-   * compare each character on the right side with the corresponding character (same position) on the left site of the string
-   * when comparing,we return false if two character don't match (we don't have a palindrome)
+### 3. Optimized Two-Pointers (Half-Scan)
+- **Concept**: Similar to the second approach, but optimized for performance.
+- **Logic**: We only iterate through **half of the string** ($n/2$). If the left half matches the mirrored right half, the number is a palindrome.
+- **Optimization**: Reduces the number of comparisons by 50% compared to a full scan.
 
-2. second code (easy_palindrome2)
-   * convert the int into a string 
-   * store the inverse of this string in another string
-   * if the two are the same, than we have a palindrome
 
-3. the third code (easy_palindrome3)
-   * This code is the same as the first one (easy_palindrome1), but here we don’t iterate through the entire array; we only look at half of it. 
-   * If the elements in the left half are identical to each of the elements in the right half of the array, then we have a palindrome.
----
 
-## 🔗 Liens
+## 📊 Complexity Analysis (Optimized Version)
+- **Time Complexity**: $O(n)$ – where $n$ is the number of digits in the integer. We traverse at most half of the string.
+- **Space Complexity**: $O(n)$ – due to the string conversion which requires space proportional to the number of digits.
 
-* [Link to the Exercise](https://leetcode.com/problems/palindrome-number/submissions/1976522868/).
+## 🚀 Execution Example
+**Example 1:**
+- **Input:** `x = 121`
+- **Output:** `true`
+- **Explanation:** 121 reads as 121 from both sides.
 
-* **Programming language:** Python
+**Example 2:**
+- **Input:** `x = -121`
+- **Output:** `false`
+- **Explanation:** From left to right: `-121`. From right to left: `121-`.
 
-*  **Complexity:** O(n)
+## 🛠️ Implementation
+The repository contains three versions of the solution:
+* `easy_palindrome1.py`: Full string comparison.
+* `easy_palindrome2.py`: String inversion logic.
+* `easy_palindrome3.py`: Optimized half-array iteration.
 
