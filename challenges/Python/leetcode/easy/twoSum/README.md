@@ -1,4 +1,3 @@
-# twoSum
 # [1. Two Sum](https://leetcode.com/problems/two-sum/)
 
 ![Difficulty: Easy](https://img.shields.io/badge/Difficulty-Easy-blue)
