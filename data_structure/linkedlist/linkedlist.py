@@ -17,7 +17,7 @@ class LinkedList:
         new_node = Node(data) # we create the node
         new_node.next = self.head # our node is the previous node of the head of the linked list
         self.head = new_node # now the created node is the first of the linked list
-        self.size += 1
+        self.size += 1 # increment the size of the list
 
 
     ## This method works in the same way as ‘add_head’, but in this case, an existing node is added as the head node.
@@ -25,7 +25,7 @@ class LinkedList:
     def add_node_to_head(self, new_node: Node):
         new_node.next = self.head # our node is the previous node of the head of the linked list
         self.head = new_node # now the created node is the first of the linked list
-        self.size += 1
+        self.size += 1 # increment the size of the list
 
 
 
@@ -42,7 +42,8 @@ class LinkedList:
         else:
             self.tail.next = new_node
             self.tail = new_node
-        self.size += 1
+
+        self.size += 1 # increment the size of the list
 
 
 
@@ -57,11 +58,12 @@ class LinkedList:
         else:
             self.tail.next = new_node
             self.tail = new_node
-        self.size += 1
+
+        self.size += 1 # increment the size of the list
 
 
     def insert_at_position(self, index, data ):
-        #case 1: negativ index
+        #case 1: negative index
         if index < 0:
             raise IndexError("The index cannot be negative")
 
@@ -91,7 +93,49 @@ class LinkedList:
             new_node = Node(data)
             new_node.next = node.next
             node.next = new_node
-            self.size += 1
+            self.size += 1 # increment the size of the list
 
+
+
+    ############ helpers ##############
+
+    ## get info about a specific node
+    def get_node(self, index):
+            if index < 0 or index >= self.size:
+                raise IndexError("index out of range")
+            elif index == 0:
+                return self.head
+            elif index == self.size - 1:
+                return self.tail
+            else:
+                node = self.head
+                i = 0
+                while i < index:
+                    node = node.next
+                    i += 1
+                return node
+
+
+
+    ## check if the list is empty
+    def is_empty(self):
+        return self.head is None
+
+
+    ## get the length of the linked list
+    def get_size(self):
+        return self.size
+
+
+    ## display the linked list
+    def print_list(self):
+        if self.head is None:
+            print("List is empty")
+        else:
+        node = self.head
+        while node:
+            print(node.data, "-->",  end=" ")
+            node = node.next
+            print()
 
 
