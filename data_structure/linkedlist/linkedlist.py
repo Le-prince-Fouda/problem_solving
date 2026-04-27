@@ -34,6 +34,7 @@ class LinkedList:
         new_node = Node(data) # we create the node to add
 
         # case 1: The linkedlist is empty
+        #####if...: self.add_head(data); self.tail = self.head
         if self.head is None:
             self.head = new_node
             self.tail = self.head
@@ -50,6 +51,7 @@ class LinkedList:
     ## this methode add an existing node as the tail of the linked list
     def add_node_to_tail(self, new_node: Node):
         # case 1: The linkedlist is empty
+        ##### reecrire cette condition en utilisant add_node_to_head
         if self.head is None:
             self.head = new_node
             self.tail = new_node
@@ -138,4 +140,4 @@ class LinkedList:
             node = node.next
             print()
 
-
+    ############ deletion ##############
