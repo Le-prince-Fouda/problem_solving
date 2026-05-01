@@ -137,6 +137,21 @@ class LinkedList:
             print("None")
 
 
+    ## display the head and the tail
+    def print_head_tail(self):
+        # case 1: The linked list is empty
+        if self.size == 0:
+            print("List is empty")
+            print("Head is None and tail is None")
+        # case 2: The linked list has one element
+        elif self.size == 1:
+            print("We have only one element in the list")
+            print(f"Head is {self.head.data} and tail is {self.tail.data}")
+        # case 3: The linked list has one element
+        else:
+            print(f"Head is {self.head.data} and tail is {self.tail.data}")
+
+
     ############ deletion ##############
 
     ##remove the first element of the list
