@@ -65,23 +65,19 @@ class LinkedList:
 
 
     def insert_at_position(self, index, data ):
-        #case 1: negative index
-        if index < 0:
-            raise IndexError("The index cannot be negative")
+        #case 1: negative index or doesn't exist
+        if index < 0 or index >= self.size:
+            raise IndexError(f"index out of range. The index must be between 0 and {self.size}")
 
-        #case 2: index doesn't exist
-        elif index >= self.size:
-            raise IndexError("The index cannot be greater than the size")
-
-        #case 3: add the head
+        #case 2: add the head
         elif index == 0:
             self.add_head(data)
 
-        # case 4: add the tail
+        # case 3: add the tail
         elif index == self.size - 1:
             self.add_tail(data)
 
-        # case 5:
+        # case 4:
         # principle: find the node at the position (index - 1) and this node will bethe previous node of the node to add,
         # than the node to add we have the indicated position (index)
         else:
@@ -103,19 +99,19 @@ class LinkedList:
 
     ## get info about a specific node
     def get_node(self, index):
-            if index < 0 or index >= self.size:
-                raise IndexError("index out of range")
-            elif index == 0:
-                return self.head
-            elif index == self.size - 1:
-                return self.tail
-            else:
-                node = self.head
-                i = 0
-                while i < index:
-                    node = node.next
-                    i += 1
-                return node
+        if index < 0 or index >= self.size:
+            raise IndexError(f"index out of range. The index must be between 0 and {self.size}")
+        elif index == 0:
+            return self.head
+        elif index == self.size - 1:
+            return self.tail
+        else:
+            node = self.head
+            i = 0
+            while i < index:
+                node = node.next
+                i += 1
+            return node
 
 
 
@@ -134,10 +130,108 @@ class LinkedList:
         if self.head is None:
             print("List is empty")
         else:
-        node = self.head
-        while node:
-            print(node.data, "-->",  end=" ")
-            node = node.next
-            print()
+            node = self.head
+            while node:
+                print(node.data,  end=" --> ")
+                node = node.next
+            print("None")
+
 
     ############ deletion ##############
+
+    ##remove the first element of the list
+    def remove_head(self):
+        # case1: the linked list has no element
+        if self.head is None:
+            raise ValueError("List is empty")
+
+        #case2: the linked list has one element
+        if self.head == self.tail:
+            self.head =None
+            self.tail = None
+
+        # case3: the linked list has many elements
+        else:
+            self.head = self.head.next
+        # decrement the size of the list
+        self.size -= 1
+
+
+
+    ##remove the first element of the list
+    def remove_tail(self):
+        # case1: the linked list has no element
+        if self.head is None:
+            raise ValueError("List is empty")
+
+        # case2: the linked list has one element
+        if self.head == self.tail:
+            self.head = self.tail = None
+
+        # case3: the linked list has many elements
+        else:
+            node = self.head
+            while node.next.next is not None:
+                node = node.next
+            node.next = None
+            self.tail = node
+        # decrement the size of the list
+        self.size -= 1
+
+
+    ## remove an element with a specific data
+    def remove(self, data):
+        # The list has no element
+        if self.size == 0:
+            raise ValueError("List is empty")
+
+        # The list has one or many elements
+        node = self.head
+        previous_node = None
+        while node is not None:
+            if node.data == data:
+                # the to remove node ist the head
+                if node == self.head:
+                    self.remove_head()
+                # the to remove node ist the tail
+                elif node == self.tail:
+                    self.remove_tail()
+                # the to remove node is in the middle of the list
+                else:
+                    previous_node.next = node.next
+                    #node.next = None     # this line is optional in Python
+                    self.size -= 1  # decrement the size of the list
+                return # this line stop the verification after finding and deleting the node
+
+            # if the current node is not the to remove node, we go to the next
+            previous_node = node
+            node = node.next
+        # the data correspond to no node
+        raise ValueError(f"data {data} not in list")
+
+    ## remove an element at a specific index
+    def remove_by_index(self, index):
+        if index < 0 or index >= self.size:
+            raise IndexError(f"index out of range. The index must be between 0 and {self.size}")
+        if index == 0:
+            self.remove_head()
+        elif index == self.size - 1:
+            self.remove_tail()
+        else:
+            i = 0
+            node = self.head
+            previous_node = None
+            while i < index:
+                i += 1
+                previous_node = node
+                node = node.next
+            # we effectively remove the node in the index
+            previous_node.next = node.next
+            #node.next = None      # This line is optional in Python
+        self.size -= 1  # decrement the size of the list
+
+
+
+
+
+
