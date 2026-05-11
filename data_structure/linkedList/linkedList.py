@@ -111,7 +111,7 @@ class LinkedList:
             while i < index:
                 node = node.next
                 i += 1
-            return node
+            return node.data
 
 
 
