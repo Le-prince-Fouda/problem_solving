@@ -1,3 +1,7 @@
+#
+# Here we are testing the methods of the Stack class
+#
+
 from stack import Stack
 
 
